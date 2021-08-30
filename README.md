@@ -35,8 +35,8 @@ version and add it to your workspace. For example, if using `warrior`:
 You will also need to enable FORTRAN support by adding the following to your
 `local.conf` file:
 
-    FORTRAN_forcevariable = ",fortran"
-    RUNTIMETARGET_append_pn-gcc-runtime = " libquadmath"
+    FORTRAN:forcevariable = ",fortran"
+    RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
 
 If you're using a custom distribution, you can alternatively include the two
 above lines in your `distro.conf` file.
