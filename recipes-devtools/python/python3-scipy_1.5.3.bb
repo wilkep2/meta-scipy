@@ -18,6 +18,7 @@ export LAPACK = "${STAGING_LIBDIR}"
 export BLAS = "${STAGING_LIBDIR}"
 
 export F90 = "${TARGET_PREFIX}gfortran"
+export F77 = "${TARGET_PREFIX}gfortran"
 export FARCH = "${TUNE_CCARGS}"
 # Numpy expects the LDSHARED env variable to point to a single
 # executable, but OE sets it to include some flags as well. So we split
