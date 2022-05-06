@@ -29,7 +29,7 @@ Installation
 Clone this repository with the tag or branch corresponding to your OpenEmbedded
 version and add it to your workspace. For example, if using `warrior`:
 
-    git clone -b warrior https://github.com/gpanders/meta-scipy meta-scipy
+    git clone -b warrior https://github.com/tuxable-ltd/meta-scipy meta-scipy
     bitbake-layers add-layer meta-scipy
 
 You will also need to enable FORTRAN support by adding the following to your
