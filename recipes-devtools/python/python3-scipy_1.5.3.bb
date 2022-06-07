@@ -2,7 +2,7 @@ inherit pypi setuptools3
 
 SUMMARY = "SciPy: Scientific Library for Python"
 HOMEPAGE = "https://www.scipy.org"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=8256119827cf2bbe63512d4868075867"
 
 SRC_URI += " file://0001-Allow-passing-flags-via-FARCH-for-mach.patch"
