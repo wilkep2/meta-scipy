@@ -9,8 +9,17 @@ SRC_URI += " file://0001-Allow-passing-flags-via-FARCH-for-mach.patch"
 SRC_URI[md5sum] = "ecf5c58e4df1d257abf1634d51cb9205"
 SRC_URI[sha256sum] = "ddae76784574cc4c172f3d5edd7308be16078dd3b977e8746860c76c195fa707"
 
-DEPENDS += "${PYTHON_PN}-numpy ${PYTHON_PN}-numpy-native ${PYTHON_PN}-pybind11-native lapack"
-RDEPENDS:${PN} += "${PYTHON_PN}-numpy lapack"
+DEPENDS += " \
+	${PYTHON_PN}-numpy \
+	${PYTHON_PN}-numpy-native \
+	${PYTHON_PN}-pybind11-native \
+	lapack \
+"
+
+RDEPENDS:${PN} += " \
+	${PYTHON_PN}-numpy \
+	lapack \
+"
 
 CLEANBROKEN = "1"
 
@@ -20,6 +29,9 @@ export BLAS = "${STAGING_LIBDIR}"
 export F90 = "${TARGET_PREFIX}gfortran"
 export F77 = "${TARGET_PREFIX}gfortran"
 export FARCH = "${TUNE_CCARGS}"
+
+export NUMPY_INCLUDE_PATH = "${STAGING_DIR_TARGET}/usr/lib/python${PYTHON_BASEVERSION}/site-packages/numpy/core/include"
+
 # Numpy expects the LDSHARED env variable to point to a single
 # executable, but OE sets it to include some flags as well. So we split
 # the existing LDSHARED variable into the base executable and flags, and
@@ -29,3 +41,5 @@ export LDSHARED := "${@d.getVar('LDSHARED', True).split()[0]}"
 
 # Tell Numpy to look in target sysroot site-packages directory for libraries
 LDFLAGS:append = " -L${STAGING_LIBDIR}/${PYTHON_DIR}/site-packages/numpy/core/lib"
+
+INSANE_SKIP:${PN} = "already-stripped"
