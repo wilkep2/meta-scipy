@@ -30,7 +30,7 @@ export F90 = "${TARGET_PREFIX}gfortran"
 export F77 = "${TARGET_PREFIX}gfortran"
 export FARCH = "${TUNE_CCARGS}"
 
-export NUMPY_INCLUDE_PATH = "${STAGING_DIR_TARGET}/usr/lib/python${PYTHON_BASEVERSION}/site-packages/numpy/core/include"
+export NUMPY_INCLUDE_PATH = "${STAGING_DIR_TARGET}${libdir}/python${PYTHON_BASEVERSION}/site-packages/numpy/core/include"
 
 # Numpy expects the LDSHARED env variable to point to a single
 # executable, but OE sets it to include some flags as well. So we split
